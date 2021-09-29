@@ -1,0 +1,65 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      args:
+      - NODE_ENV=development
+      context: backend
+    command: npm run start-watch
+    environment:
+      - DATABASE_DB=EXAMPLE
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=/run/secrets/db-password
+      - DATABASE_HOST=db
+      - NODE_ENV=development
+    ports:
+      - 5010:80
+      - 9229:9229
+      - 9230:9230
+    secrets:
+      - db-password
+    volumes:
+      - ./backend/src:/code/src:ro
+      - ./backend/package.json:/code/package.json
+      - ./backend/package-lock.json:/code/package-lock.json
+      - back-notused:/opt/app/node_modules
+    networks:
+      - public
+      - private
+    depends_on:
+      - db
+  db:
+    build: ./database-service
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    secrets:
+      - db-password
+    volumes:
+      - vue-db-data:/var/lib/mysql
+    networks:
+      - private
+    environment:
+      - MYSQL_DATABASE=EXAMPLE
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+  web:
+    build: vuejs
+    ports:
+      - 5007:8080
+    volumes:
+      - ./vuejs:/project
+      - /project/node_modules
+    networks:
+      - public
+    depends_on:
+      - backend
+networks:
+  public:
+  private:
+volumes:
+  back-notused:
+  vue-db-data:
+secrets:
+  db-password:
+    file: database-service/password.txt
