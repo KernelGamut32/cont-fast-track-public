@@ -1,4 +1,4 @@
-# Lab 07 - ConfigMaps
+# Lab 07 (Chapter 4 - Lab 1) - ConfigMaps
 
 Use https://github.com/KernelGamut32/kiamol/tree/master/ch04 
 
@@ -13,8 +13,8 @@ kubectl wait --for=condition=Ready pod -l app=todo-web
 `# get the address of the app:`
 kubectl get svc todo-web -o jsonpath='http://{.status.loadBalancer.ingress[0].*}:8080'
  
-`# browse to the app and have a play around
-# then try browsing to /config`
+`# browse to the app and have a play around`
+`# then try browsing to /config`
  
 `# check the application logs:`
 kubectl logs -l app=todo-web
