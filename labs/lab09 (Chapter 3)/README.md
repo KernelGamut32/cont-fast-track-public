@@ -81,6 +81,9 @@ kubectl get svc numbers-api
 
 ## Part 6
 
+`# setup the sleep-1 deployment`
+kubectl apply -f sleep/sleep1.yaml
+
 `# run the DNS lookup tool to resolve the Service name:`
 kubectl exec deploy/sleep-1 -- sh -c 'nslookup numbers-api | tail -n 5'
 
