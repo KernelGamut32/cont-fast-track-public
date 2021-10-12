@@ -6,7 +6,7 @@
  var connection = dataBaseHandler.createConnection();
  
  router.get('/', function (req, res, next) {
-     connection.query('SELECT * FROM BENEFIT;', function (error, result, fields) {
+     connection.query('SELECT * FROM BENEFIT ORDER BY Code;', function (error, result, fields) {
          if (error) throw error;
  
          if(result[0].length== 0){

@@ -25,9 +25,15 @@ CREATE TABLE BENEFIT (
 INSERT INTO EMPLOYEE (FirstName, LastName, Phone, Address, City, FullName, Email, Pin, CreationDate, EmployeeCode)
 VALUES ('SYSADMIN', 'SYSADMIN', 945214775, 'Av. Alfonso Ugarte', 'Lima', 'SYSADMIN SYSADMIN', 'sysadmin@gmail.com',
         1, '2011-12-18 13:17:17', 'SYSADMIN');
+INSERT INTO EMPLOYEE (FirstName, LastName, Phone, Address, City, FullName, Email, Pin, CreationDate, EmployeeCode)
+VALUES ('Allen', 'Sanders', 123456789, '123 Rd. Blvd.', 'Columbus', 'Allen Sanders', 'asanders@test.com',
+        2, '2021-10-11 13:17:17', 'ASANDERS');
 
 INSERT INTO BENEFIT (Code, Description) VALUES ('AAA111', 'Medical Insurance');
 INSERT INTO BENEFIT (Code, Description) VALUES ('BBB222', 'Vision');
+INSERT INTO BENEFIT (Code, Description) VALUES ('CCC333', 'Dental');
+INSERT INTO BENEFIT (Code, Description) VALUES ('DDD444', 'Identity Protection');
+INSERT INTO BENEFIT (Code, Description) VALUES ('EEE555', 'Legal');
 
 DROP PROCEDURE IF EXISTS sp_GetEmployee;
 DELIMITER //

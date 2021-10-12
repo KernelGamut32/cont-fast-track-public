@@ -38,6 +38,7 @@ services:
       - db-password
     volumes:
       - vue-db-data:/var/lib/mysql
+      - ./database-service/setup.sql:/docker-entrypoint-initdb.d/setup.sql
     networks:
       - private
     environment:

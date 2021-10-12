@@ -11,3 +11,4 @@ CREATE TABLE STUFF (
 INSERT INTO STUFF (Name, Description, Code) VALUES ('Widget', 'Plain old widget', 'WIDG1');
 INSERT INTO STUFF (Name, Description, Code) VALUES ('Whatchamacallit', 'You know, the thing', 'WTCH1');
 INSERT INTO STUFF (Name, Description, Code) VALUES ('Hoozywhatsit', 'Not sure where to start', 'HWIT1');
+INSERT INTO STUFF (Name, Description, Code) VALUES ('Thingamabob', 'No one named Bob cares', 'TGMB1');
